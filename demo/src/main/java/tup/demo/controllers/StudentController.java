@@ -26,7 +26,7 @@ public class StudentController {
     @PostMapping("/insert")
     public String insert(@RequestBody Student student) {
         if (student == null) {
-            return "Failed to insert Student within the database";
+            return "Failed to insert student in the database";
         } else {
             String result = studentService.insert(student);
             return result;

@@ -15,7 +15,6 @@ public class StudentServiceImpl implements StudentService {
 	@Autowired
 	StudentRepository studentRepository;
 
-	@Override
 	@Transactional
 	// A Proxy is Created that wraps the function retrieve
 	// BeginTransaction
@@ -25,7 +24,6 @@ public class StudentServiceImpl implements StudentService {
 	}
 	// Commit Transaction
 
-	@Override
 	@Transactional
 	// A Proxy is Created that wraps the function insert
 	// BeginTransaction
@@ -34,22 +32,25 @@ public class StudentServiceImpl implements StudentService {
 			// Estamos dentro de una transacción.
 			// Notar que el save() se ejecuta en esta línea.
 			Student savedStudent = studentRepository.save(student);
-			if (savedStudent.getStudentId() == 9) {
+			if (savedStudent.getId() == 9) {
 				// Si dejamos la división por 10 no hay excepción, y la transacción
 				// se comete normalmente.
 				// Pero si ponemos una división por cero, se produce una excepción
 				// y la transacción se retrotrae, de modo que nada cambia.
 				int a = 1 / 10;
+				a = 1 / 0;
 				System.out.println("The value of A is : " + a);
 			}
-			return "The Student is successfully inserted within the database";
+			return "The student is successfully inserted in the database";
+		} catch (IllegalArgumentException e) {
+			return "Student parameter must not be null";
 		} catch (IllegalArgumentException e) {
 			return "Student parameter must not be null";
 		}
 		// Commit Transaction
 	}
 
-	@Override
+	// @Override
 	@Transactional
 	// A Proxy is Created that wraps the function delete
 	// BeginTransaction
