@@ -44,8 +44,8 @@ public class StudentServiceImpl implements StudentService {
 			return "The student is successfully inserted in the database";
 		} catch (IllegalArgumentException e) {
 			return "Student parameter must not be null";
-		} catch (IllegalArgumentException e) {
-			return "Student parameter must not be null";
+		} catch (ArithmeticException e) {
+			return "División entera por cero: ArithmeticException.";
 		}
 		// Commit Transaction
 	}

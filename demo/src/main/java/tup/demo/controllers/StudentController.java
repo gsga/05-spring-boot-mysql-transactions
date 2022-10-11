@@ -19,6 +19,11 @@ public class StudentController {
 
     @GetMapping("/retrieve")
     public List<Student> retrieve() {
+        /**
+         * En las aplicaciones de Spring Boot esto sale por la Debug Console.
+         * No es como en las aplicaciones de consola.
+         */
+        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/retrieve");
         List<Student> studentList = studentService.retrieve();
         return studentList;
     }

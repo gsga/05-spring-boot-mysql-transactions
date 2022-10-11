@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
 
 	public static void main(String[] args) {
-		System.out.println("MAINMAINMAINMAINMAIN");
+		System.out.println("ESTO VA A SALIR EN DEBUG CONSOLE BIEN AL PRINCIPIO");
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
